@@ -1,0 +1,14 @@
+version: "2.0"
+services:
+  python:
+    image: selenium_python:v1
+    volumes:
+      - ./compose_demo.py:/root/compose_demo.py  # 将本地文件映射到容器内，前面的路径是本机的，后面的是容器的。注意：可以指定具体文件，也可以指定路径
+    command: python /root/compose_demo.py  # 定义启动容器执行的命令
+    depends_on:
+      - chrome #映射的域名，脚本中要把域名改成这个
+  chrome:
+    image: selenium/standalone-chrome:4.1.3-20220327
+    ports:
+      - "4444:4444"
+    shm_size: 2g
