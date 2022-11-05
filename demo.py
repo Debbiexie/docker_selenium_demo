@@ -11,7 +11,7 @@ driver = webdriver.Remote(
     desired_capabilities=DesiredCapabilities.CHROME
 )
 
-driver.get("https://www.baidu.com")
+driver.get("https://www.shopperplus.ca")
 content = driver.title.split("_")[0]
 print(content)
 driver.close()
